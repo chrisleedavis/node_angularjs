@@ -23,15 +23,15 @@
 	exports.addUser = function(req, res) {
 
 		console.log("future home of addUser");
-	}
+	};
 
 	exports.updateUser = function(req, res) {
 
 		console.log("future home of updateUser");
-	}
+	};
 
 	exports.deleteUser = function(req, res) {
 
 		console.log("future home of deleteUser");
-	}
+	};
 }());
