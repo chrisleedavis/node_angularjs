@@ -1,6 +1,7 @@
 /**
  * Web API for User Resource
  * - Will return MOCK data for now
+ * - TODO more mock implementation
  */
 (function() {
 	"use strict";
