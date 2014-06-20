@@ -3,6 +3,7 @@
  * - Will return MOCK data for now
  * - TODO more mock implementation
  */
+/* jshint node:true */
 (function() {
 	"use strict";
 
@@ -23,16 +24,16 @@
 
 	exports.addUser = function(req, res) {
 
-		console.log("future home of addUser");
+		res.send("future home of addUser");
 	};
 
 	exports.updateUser = function(req, res) {
 
-		console.log("future home of updateUser");
+		res.send("future home of updateUser");
 	};
 
 	exports.deleteUser = function(req, res) {
 
-		console.log("future home of deleteUser");
+		res.send("future home of deleteUser");
 	};
 }());
