@@ -10,9 +10,26 @@
         grunt.loadNpmTasks("grunt-contrib-uglify");
         grunt.loadNpmTasks("grunt-contrib-jshint");
         grunt.loadNpmTasks("grunt-mocha-test");
+        grunt.loadNpmTasks("grunt-concurrent");
+        grunt.loadNpmTasks("grunt-nodemon");
 
         grunt.initConfig({
             pkg: grunt.file.readJSON("package.json"),
+
+            concurrent: {
+              start: {
+                tasks: ["nodemon", "watch"],
+                options: {
+                  logConcurrentOutput: true
+                }
+              }
+            },
+
+            nodemon: {
+              start: {
+                script: "app.js"
+              }
+            },
 
             mochaTest: {
               test: {

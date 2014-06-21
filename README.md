@@ -48,12 +48,14 @@ npm install
 this will make sure all of the rest of the appropriate node modules are installed within the server directory so the site will run
 
 ```shell
-node app
+grunt concurrent
 ```
-this will start the node server for (localhost:8888)
+this will start grunt so it can:
 
-```shell
-grunt watch
-```
-this will start grunt so it can build the static content for the site along with providing you with a monitor while you develop to make sure your changes are pushed out the server and all tests for the application pass
+1. Start the express app (localhost:8888)
+2. Build static content (css, js, etc.)
+3. Run tests for application
+4. Perform jshint operations to help keep code clean
+5. Start watch so file changes will kick of builds, jshint, test runner, etc.
+
 

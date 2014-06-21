@@ -26,7 +26,8 @@ $RECYCLE.BIN/
 .LSOverride
 
 # Icon must ends with two \r.
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -38,3 +39,6 @@ Icon
 
 # nodejs modules
 node_modules/
+
+# README html view
+README.html
