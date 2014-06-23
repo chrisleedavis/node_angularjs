@@ -5,14 +5,6 @@
 (function() {
 	"use strict";
 
-	//curry
-	//
-
-
-	//memoization
-	//
-	
-
 	//global error handling
 	//
 

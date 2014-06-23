@@ -6,8 +6,7 @@
 (function(){
 	"use strict";
 
-	var runningTotal = 0,
-		add1;
+	var add1;
 
 	//add all arguments together
 	function add() {
