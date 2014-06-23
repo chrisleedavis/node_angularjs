@@ -5,21 +5,6 @@
 (function() {
 	"use strict";
 
-	//constructors
-	//
-	
-
-
-	//scopes
-	//	Global - can be referenced anywhere, placed on root object (browser = window)
-	//	Local/Function - scopes at a function level
-	//	***	 if you forget var, it will be placed on global scope
-	
-
-	//closures
-	//
-
-
 	//curry
 	//
 
@@ -82,5 +67,20 @@
 
 	//looping structures (if there's no lodash)
 	//
+
+	//HTML 5
+	//	new doctype = html
+	//	small now refers to small print
+	//	don't need types for scripts/links
+	//	don't need quotes for attributes
+	//	contenteditable
+	//	email inputs
+	//	placeholders
+	//	local storage
+	//	header/footer elements
+	//	required attr
+	//	autofocus
+	//	audio/video support
+	//	data attr
 
 }());

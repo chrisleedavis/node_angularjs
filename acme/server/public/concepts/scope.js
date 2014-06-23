@@ -8,16 +8,11 @@
 var scopeTest = "foo"; //global, should be placed on window obj
 
 (function() {
+	"use strict";
 
 	var test = "hello"; //should be local within current function
 
-	foo = "bar" //should be placed on global window object
-
-
-	//TEST variables
-	console.log(window.scopeTest);
-	console.log(window.test);
-	console.log(test);
-	console.log(window.foo);
+	//should be placed on global window object and generate error with strict mode
+	//foo = "bar" 
 
 }());
