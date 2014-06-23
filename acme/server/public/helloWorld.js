@@ -1,5 +1,6 @@
 /**
- * Make sure JS files are working correctly with router
+ * Make sure the web api is working properly.
+ *
  */
 (function() {
 	"use strict";
