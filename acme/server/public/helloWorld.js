@@ -5,9 +5,9 @@
 (function() {
 	"use strict";
 
-	//get all users from the server
+	//get all products from the server
 	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("GET", "http://localhost:8888/api/users", true);
+	xmlhttp.open("GET", "http://localhost:8888/api/products", true);
 	xmlhttp.send();
 
 }());

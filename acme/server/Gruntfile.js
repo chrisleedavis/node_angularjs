@@ -56,7 +56,11 @@
                     "eqeqeq": true,  //make sure to enforce coercion within JS,
                     force: true    //don"t fail task if error reported
                 },
-                serverJS: ["app.js", "users.js", "test/**/*.js"]
+                serverJS: ["app.js", 
+                "errorModel.js", 
+                "productController.js", 
+                "productModel.js",
+                "test/**/*.js"]
             },
 
             //to run, call `grunt karma:unit watch in console
@@ -65,7 +69,11 @@
                     atBegin: true
                 },
 				mochaTest: {
-					files: ["app.js", "users.js", "test/**/*.js"],
+					files: ["app.js", 
+                            "errorModel.js", 
+                            "productController.js", 
+                            "productModel.js",
+                            "test/**/*.js"],
 					tasks: ["jshint", "mochaTest"],
 					options: {
 					  spawn: false
