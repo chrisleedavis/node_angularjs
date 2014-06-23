@@ -6,7 +6,7 @@
 	"use strict";
 
 	//get all products from the server
-	var xmlhttp = new XMLHttpRequest();
+	var xmlhttp = new window.XMLHttpRequest();
 	xmlhttp.open("GET", "http://localhost:8888/api/products", true);
 	xmlhttp.send();
 

@@ -60,7 +60,8 @@
                 "errorModel.js", 
                 "productController.js", 
                 "productModel.js",
-                "test/**/*.js"]
+                "test/**/*.js"],
+                clientJS: "public/**/*.js"
             },
 
             //to run, call `grunt karma:unit watch in console
@@ -78,7 +79,14 @@
 					options: {
 					  spawn: false
 					}
-				}
+				},
+                clientJS: {
+                    files: ["public/**/*.js"],
+                    tasks: ["jshint"],
+                    options: {
+                        spawn: false
+                    }
+                }
             }
         });
     };

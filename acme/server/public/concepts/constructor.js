@@ -47,7 +47,7 @@
 		}	
 	};
 
-	user = User({name: "Chris"});
+	user = new User({name: "Chris"});
 	user.saySomething("is the bomb");
 	console.log(user);
 
