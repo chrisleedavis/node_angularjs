@@ -8,14 +8,11 @@
 	//global error handling
 	//
 
-
 	//AJAX from scratch
 	//
 
-
 	//promises from scratch
 	//
-
 
 	//raise events from scratch
 	//
@@ -23,42 +20,16 @@
 	//mixns
 	//
 
-
+	//creating objects with dirty checks, freezing, readonly, etc
+	//
 
 	//dependency injection
 	//
 
-
 	//type coehision
 	//
-
-	//private variables
-	//
-
-	//inheritence
-	//
-
-
-	//declared functions vs function expressions
-	//
-
-
-	//hoisting
-	//
-
-	//call vs apply
-	//
-
-
-	//function arguments and arity
-	//
-
-
-	//array management
-	//
-
-	//looping structures (if there's no lodash)
-	//
+	
+	//ES 5 & ES 6 items
 
 	//HTML 5
 	//	new doctype = html

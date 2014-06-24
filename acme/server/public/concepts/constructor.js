@@ -11,17 +11,14 @@
 	//constructor
 	function User(options) {
 
-		var keys;
-
 		if (this instanceof User === false) {
 			console.log("hey, you're not instantiating User correctly!, will fix it for you..."); 
 			return new User(options);
 		}
 
 		if (options) {
-			keys = Object.keys(options);
-			for (var i = 0; i < keys.length; i++) {
-				this[keys[i]] = options[keys[i]];
+			for (var prop in options) {
+				this[prop] = options[prop];
 			}
 		}
 
