@@ -4,7 +4,7 @@
 	- will have promise support (Chrome is your best bet here)
 
 	Usage:
-		CPTS.http.getAll()
+		CPTS.http.getAll().then(function(products) { console.log(products); })
 		CPTS.http.get("12GBE445")
 		CPTS.http.delete("12GBE445")
 		CPTS.http.put({foo: bar})
@@ -67,16 +67,12 @@
 
 				function handleRequest() {
 
-					var problemError = "There was a problem with the request.";
-
-					httpRequest.onerror = reject(problemError);
-
 					try {
 					    if (httpRequest.readyState === 4) { //DONE
 					      if (httpRequest.status === 200) {
 					        resolve(httpRequest.response); //json object
 					      } else {
-					        reject(problemError);
+					        reject(window.Error(httpRequest.statusText));
 					      }
 					    }
 					  }
