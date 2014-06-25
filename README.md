@@ -34,7 +34,7 @@ This is a rough scratchpad for a simple angularjs application.  THIS IS STILL WO
 
 ## Setup? ##
 * make sure nodejs is installed
-* from within the acme/server directory, run the following commands:
+* from within the acme/application directory, run the following commands:
 
 ```js
 npm install grunt-cli@0.1.11 -g
@@ -45,7 +45,7 @@ this will install the module required by grunt to run the grunt watch for managi
 ```js
 npm install
 ```
-this will make sure all of the rest of the appropriate node modules are installed within the server directory so the site will run
+this will make sure all of the rest of the appropriate node modules are installed within the application directory so the site will run
 
 ```shell
 grunt concurrent

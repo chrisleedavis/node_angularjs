@@ -42,3 +42,8 @@ node_modules/
 
 # README html view
 README.html
+
+# don't include generated min files with source control
+*.min.js
+*.min.css
+*.min.map

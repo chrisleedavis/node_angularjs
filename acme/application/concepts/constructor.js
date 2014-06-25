@@ -48,7 +48,7 @@
 	user.saySomething("is the bomb");
 	console.log(user);
 
-	//just for testing within console, add user to window
-	window.user = user;
+	//just for testing within console, add user to CPTS
+	CPTS.user = user;
 
 }());

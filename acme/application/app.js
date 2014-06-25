@@ -15,6 +15,7 @@
 
 		//index.html, js, css
 		app.use(express.static("public"));
+		app.use(express.static("concepts")); //for source map help
 
 		//web api routing
 		app.get(API_ROOT, products.findAllProducts);

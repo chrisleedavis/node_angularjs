@@ -46,4 +46,8 @@
 	//	audio/video support
 	//	data attr
 
+
+	if (!window.CPTS) {
+		window.CPTS = {};
+	}
 }());
