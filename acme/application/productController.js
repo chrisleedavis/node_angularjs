@@ -111,6 +111,7 @@
 			console.log("Deleting product: " + product.sku);
 			index = _.findIndex(products, { sku: product.sku });
 			products.splice(index, 1); //_.reject could not be used here
+			res.send("product " + product.sku + " has been deleted");
 		} else {
 			res.send(product); //only send back product if invalid
 		}

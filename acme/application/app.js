@@ -9,6 +9,7 @@
 
 	var express = require("express"),
 		products = require("./productController"),
+		bodyParser = require('body-parser'),
 		API_ROOT = "/api/products",
 		API_ROOT_SKU = API_ROOT + "/:sku",
 		app = express();
@@ -17,12 +18,18 @@
 		app.use(express.static("public"));
 		app.use(express.static("concepts")); //for source map help
 
+		// parse application/json
+		app.use(bodyParser.json());
+
+		// parse application/vnd.api+json as json
+		app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
+
 		//web api routing
 		app.get(API_ROOT, products.findAllProducts);
 		app.get(API_ROOT_SKU, products.findProduct);
 		app.post(API_ROOT, products.addProduct);
 		app.put(API_ROOT_SKU, products.updateProduct);
-		app.delete(API_ROOT_SKU, products.deleteProduct);
+		app["delete"](API_ROOT_SKU, products.deleteProduct);
 
 		console.log("Acme server has started...");
 
