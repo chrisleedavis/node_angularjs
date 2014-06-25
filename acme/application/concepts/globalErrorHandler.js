@@ -15,6 +15,6 @@
 		}
 	};
 
-	throw "dang, it happened again";
+	//throw "dang, it happened again"; trust me, this works
 
 }());
