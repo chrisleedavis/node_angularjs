@@ -5,15 +5,6 @@
 (function() {
 	"use strict";
 
-	//global error handling
-	//
-
-	//AJAX from scratch
-	//
-
-	//promises from scratch
-	//
-
 	//raise events from scratch
 	//
 
@@ -24,9 +15,6 @@
 	//
 
 	//dependency injection
-	//
-
-	//type coehision
 	//
 	
 	//ES 5 & ES 6 items
