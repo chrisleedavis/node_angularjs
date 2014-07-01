@@ -25,7 +25,9 @@
 			});
 		};
 
-	console.log(filterByChris());
-	console.log(isDavidWatersPresent());
+    //provide namespace with items for testing
+    CPTS.testArray = values;
+	CPTS.filterByChris = filterByChris;
+	CPTS.isDavidWatersPresent = isDavidWatersPresent;
 
 }());

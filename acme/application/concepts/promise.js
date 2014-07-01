@@ -10,8 +10,14 @@
 (function(){
 	"use strict";
 
-	var setTimeout = window.setTimeout,
-		Promise = window.Promise, 
+	var setTimeout,
+		Promise,
+		promise;
+
+    if (window.Promise) {
+
+		setTimeout = window.setTimeout;
+		Promise = window.Promise; 
 		promise = new Promise(function(resolve, reject) {
 
 			setTimeout(function() {
@@ -21,19 +27,21 @@
 
 		});
 
-	console.log("promise test #1...");
-	Promise.all(["foo", promise]).then(function(values) {
-		console.log("from #1: " + values.join(""));
-	}, function(error) {
-		console.error(error);
-	});
+		console.log("promise test #1...");
+		Promise.all(["foo", promise]).then(function(values) {
+			console.log("from #1: " + values.join(""));
+		}, function(error) {
+			console.error(error);
+		});
 
-	console.log("promise test #2...");
-	promise.then(function(value) {
-		console.log("from #2: " + value);
-		setTimeout(function() {
-			console.log("promise test #2 ended");
-		}, 5000);
-	});
+		console.log("promise test #2...");
+		promise.then(function(value) {
+			console.log("from #2: " + value);
+			setTimeout(function() {
+				console.log("promise test #2 ended");
+			}, 5000);
+		});
+
+    }
 	
 }());

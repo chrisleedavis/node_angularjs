@@ -41,6 +41,10 @@ npm install grunt-cli@0.1.11 -g
 ```
 this will install the module required by grunt to run the grunt watch for managing static content, running tests as you develop, etc.
 
+```js
+npm install karma-cli@0.0.4 -g
+```
+this will install the module required by grunt to run the karma tests in watch mode so they will run while you make modifications to static content
 
 ```js
 npm install
