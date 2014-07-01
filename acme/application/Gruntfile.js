@@ -4,7 +4,6 @@
     module.exports = function(grunt) {
 
         grunt.loadNpmTasks("grunt-contrib-watch");
-        grunt.loadNpmTasks("grunt-karma");
         grunt.loadNpmTasks("grunt-angular-templates");
         grunt.loadNpmTasks("grunt-contrib-cssmin");
         grunt.loadNpmTasks("grunt-contrib-uglify");
@@ -87,7 +86,26 @@
                             'concepts/concepts.js',
                             'concepts/**/*.js']
                     }
-                }
+                },
+
+                lib: {
+                    options: {
+                        sourceMap: 'public/lib.min.map',
+                        //below controls what is seen within matching js file
+                        sourceMappingURL: function(path) { return path.replace("public/", "").replace(/.js/, '.map');  },
+                        sourceMapRoot: '../', //helps with relative path
+                        sourceMapPrefix: 1 //helps with relative path
+                    },
+                    files: {
+                        'public/lib.min.js': [
+                            'lib/angular.js',
+                            'lib/**/*.js',
+                            '!lib/angular-mocks.js', //for testing only
+                            '!lib/browserTrigger.js', //for testing only
+                            '!lib/localization/**/*.js', //only load en_US
+                            'lib/localization/angular-locale_en_US.js']
+                    }
+                },
             },
 
             //to run, call `grunt karma:unit watch in console
@@ -106,9 +124,16 @@
                       spawn: false
                     }
                 },
-                clientSideJS: {
+                conceptsJS: {
                     files: ["concepts/**/*.js"],
-                    tasks: ["jshint", "uglify"],
+                    tasks: ["jshint", "uglify:concepts:run"],
+                    options: {
+                        spawn: false
+                    }
+                },
+                libJS: {
+                    files: ["lib/**/*.js"],
+                    tasks: ["jshint", "uglify:lib:run"],
                     options: {
                         spawn: false
                     }
