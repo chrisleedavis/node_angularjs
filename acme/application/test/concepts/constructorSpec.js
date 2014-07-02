@@ -5,12 +5,11 @@
 
 		it("should instantiate user correctly without the 'new' keyword", function() {
 
-			spyOn(console, "log").andCallThrough();
-
 			var user = CPTS.User();
 
 			expect(user instanceof CPTS.User).toBeTruthy();
-			expect(console.log).toHaveBeenCalledWith("hey, you're not instantiating User correctly!, will fix it for you...");
+			expect(user.messages.length).toEqual(1);
+			expect(user.messages[0]).toEqual("hey, you're not instantiating User correctly!, will fix it for you...");
 
 		});
 
@@ -27,24 +26,22 @@
 
 		it("should say something appropriate when no name is provided", function() {
 
-			spyOn(console, "log").andCallThrough();
-
 			var user = new CPTS.User(),
 				message = "fooBar";
 
 			user.saySomething(message);
-			expect(console.log).toHaveBeenCalledWith(message);
+			expect(user.messages.length).toEqual(1);
+			expect(user.messages[0]).toEqual(message);
 		});
 
 		it("should say something appropriate WHEN NAME IS provided", function() {
-
-			spyOn(console, "log").andCallThrough();
-
+			
 			var user = new CPTS.User({name: "Chris"}),
 				message = "fooBar";
 
 			user.saySomething(message);
-			expect(console.log).toHaveBeenCalledWith("Chris says: " + message);
+			expect(user.messages.length).toEqual(1);
+			expect(user.messages[0]).toEqual("Chris says: " + message);
 		});
 
 		it("should set the private member nickname appropriately", function() {

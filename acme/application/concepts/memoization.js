@@ -6,8 +6,7 @@
 	"use strict";
 
 	var valueCache = {},
-		cacheUsed = false,
-		totalAmount = 0;
+		cacheUsed = false;
 
 	function overlyComplexFunction(peopleCount) {
 
@@ -30,20 +29,13 @@
 		return amount;
 	}
 
-	function outputResults() {
-		console.log(totalAmount);
-		console.log(cacheUsed);
+	function wasCacheUsed() {
+
+		return cacheUsed;
 	}
 
-	totalAmount = overlyComplexFunction(2);
-	outputResults();
-	totalAmount = overlyComplexFunction(10);
-	outputResults();
-	totalAmount = overlyComplexFunction(15);
-	outputResults();
-	totalAmount = overlyComplexFunction(2);
-	outputResults();
-	totalAmount = overlyComplexFunction(15);
-	outputResults();
+	CPTS.memoization = {};
+	CPTS.memoization.overlyComplexFunction = overlyComplexFunction;
+	CPTS.memoization.wasCacheUsed = wasCacheUsed;
 
 }());

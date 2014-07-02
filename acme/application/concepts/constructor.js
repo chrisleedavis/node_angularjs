@@ -12,7 +12,11 @@
 	function User(options) {
 
 		if (this instanceof User === false) {
-			console.log("hey, you're not instantiating User correctly!, will fix it for you..."); 
+
+			if (!options) {
+				options = {};
+			}
+			options.messages = ["hey, you're not instantiating User correctly!, will fix it for you..."];
 			return new User(options);
 		}
 
@@ -28,10 +32,14 @@
 	User.prototype = {
 		saySomething: function(message) {
 
+			if (!this.messages) {
+				this.messages = [];
+			}
+
 			if (this.name) {
-				console.log(this.name + " says: " + message);
+				this.messages.push(this.name + " says: " + message);
 			} else {
-				console.log(message);	
+				this.messages.push(message);	
 			}
 		},
 
