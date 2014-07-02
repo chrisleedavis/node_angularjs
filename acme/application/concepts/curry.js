@@ -42,8 +42,6 @@
 	};
 
 	add1 = add.curry(1);
-	console.log(add1(7)); //should be 8
-	console.log(add1(10)); //should be 11
-	console.log(add1(10, 5)); //should be 16
+	CPTS.add1 = add1;
 
 }());
