@@ -44,11 +44,6 @@
 		}	
 	};
 
-	user = new User({name: "Chris"});
-	user.saySomething("is the bomb");
-	console.log(user);
-
-	//just for testing within console, add user to CPTS
-	CPTS.user = user;
+	CPTS.User = User;
 
 }());

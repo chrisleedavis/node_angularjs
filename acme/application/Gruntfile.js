@@ -94,7 +94,8 @@
                         "describe": true,
                         "it": true,
                         "beforeEach": true,
-                        "expect": true
+                        "expect": true,
+                        "spyOn": true
                     },
                     "strict": true, //use strict mode at function level
                     "undef": true, //make sure global variables are checked, excluded above globals filter,

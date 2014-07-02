@@ -51,6 +51,8 @@ npm install
 ```
 this will make sure all of the rest of the appropriate node modules are installed within the application directory so the site will run
 
+*** Download [PhantomJS](http://phantomjs.org/download.html) and set the environment variable 'PHANTOMJS_BIN' to the location of the PhantomJS exe ***
+
 ```shell
 grunt concurrent
 ```
