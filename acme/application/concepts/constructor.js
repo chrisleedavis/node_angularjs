@@ -1,6 +1,8 @@
 /*
 	Create User object using a closure to show how private 'members' can be created
 	within JavaScript
+
+	todo: add custom dirty flag
 	
  */
 (function() {
