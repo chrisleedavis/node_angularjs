@@ -44,15 +44,35 @@
 			expect(user.messages[0]).toEqual("Chris says: " + message);
 		});
 
-		it("should set the private member nickname appropriately", function() {
+		it("should set the private member nickname appropriately, complete with audit logs", function() {
 
 			var user = new CPTS.User(),
-				nickname = "foo";
+				foo = "foo",
+				bar = "bar";
 
-			user.setNickname(nickname);
+			user.nickname = foo;
 
-			expect(user.getNickname()).toEqual(nickname);
-			expect(user.nickname).toBeUndefined();
+			expect(user.nickname).toEqual(foo);
+			expect(user._nickname).toBeUndefined(); //make sure private member is not accessible
+			expect(user.audit_nickname.length).toEqual(1);
+			expect(user.audit_nickname[0].oldValue).toBeUndefined();
+			expect(user.audit_nickname[0].newValue).toEqual(foo);
+			expect(user.isNicknameDirty).toBeTruthy();
+
+			//make no change, verify logs
+			user.nickname = foo;
+			expect(user.audit_nickname.length).toEqual(1);
+			expect(user.messages.length).toEqual(1);
+			expect(user.messages[0]).toEqual("No change to nickname has been made");
+			expect(user.isNicknameDirty).not.toBeTruthy();
+
+			//make another change
+			user.nickname = bar;
+			expect(user.audit_nickname.length).toEqual(2);
+			expect(user.audit_nickname[1].oldValue).toEqual(foo);
+			expect(user.audit_nickname[1].newValue).toEqual(bar);
+			expect(user.messages.length).toEqual(1);
+			expect(user.isNicknameDirty).toBeTruthy();
 		});
 
 	});
