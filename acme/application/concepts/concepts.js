@@ -5,12 +5,6 @@
 (function() {
 	"use strict";
 
-	//raise events from scratch
-	//
-
-	//mixns
-	//
-
 	//dependency injection
 	//
 
