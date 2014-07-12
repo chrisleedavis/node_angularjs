@@ -36,6 +36,10 @@
 			}
 
 			return product;
+		},
+		//protect against JSON attacks
+		wrapResult = function(data) {
+		    return { d: data };
 		};
 
 	initProducts();
@@ -50,14 +54,14 @@
 			});
 		}
 
-		res.send(products);
+		res.send(wrapResult(products));
 	};
 
 	exports.findProduct = function(req, res) {
 
 		var product = findProduct(req.params.sku);
 
-		res.send(product);
+		res.send(wrapResult(product));
 	};
 
 	exports.addProduct = function(req, res) {
@@ -74,7 +78,7 @@
 			products.push(product);			
 		}
 
-		res.send(product);
+		res.send(wrapResult(product));
 	};
 
 	exports.updateProduct = function(req, res) {
@@ -98,7 +102,7 @@
 			}
 		}
 
-		res.send(product);
+		res.send(wrapResult(product));
 	};
 
 	exports.deleteProduct = function(req, res) {
@@ -111,9 +115,9 @@
 			console.log("Deleting product: " + product.sku);
 			index = _.findIndex(products, { sku: product.sku });
 			products.splice(index, 1); //_.reject could not be used here
-			res.send("product " + product.sku + " has been deleted");
+			res.send(wrapResult("product " + product.sku + " has been deleted"));
 		} else {
-			res.send(product); //only send back product if invalid
+			res.send(wrapResult(product)); //only send back product if invalid
 		}
 	};
 

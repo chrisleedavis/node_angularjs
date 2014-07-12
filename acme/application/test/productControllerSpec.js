@@ -21,13 +21,13 @@
 
 		    products.findAllProducts(request, response);
 
-		    response.data.should.eql([
+		    response.data.should.eql({d: [
 				{ sku: "12GBE445", description: "computer", errors: [], isValid: true },
 				{ sku: "JHL34HHB", description: "monitor", errors: [], isValid: true },
 				{ sku: "IDSK2323", description: "keyboard", errors: [], isValid: true },
 				{ sku: "MML8989D", description: "phone", errors: [], isValid: true },
 				{ sku: "AAKKLD32", description: "chair", errors: [], isValid: true }
-			]);
+			]});
 	    });
 
 	    it("should return a product successfully", function() {
@@ -38,8 +38,8 @@
 	    	request.params = { sku: sku };
 		    products.findProduct(request, response);
 
-		    response.data.should.eql({ sku: "IDSK2323", description: "keyboard", 
-		    	errors: [], isValid: true });
+		    response.data.should.eql({d: { sku: "IDSK2323", description: "keyboard",
+		    	errors: [], isValid: true }});
 	    });
 
 	    it("should return an error when a sku is not found", function() {
@@ -50,12 +50,12 @@
 	    	request.params = { sku: sku };
 		    products.findProduct(request, response);
 
-		    response.data.should.eql({ 
+		    response.data.should.eql({d: {
 		    	sku: sku,
 		    	description: productNotFound,
 		    	isValid: false,
 		    	errors: [productNotFound]
-		     });
+		     }});
 	    });
 
 	    it("should add a product successfully", function() {
@@ -65,7 +65,7 @@
 
 	    	products.addProduct(request, response);
 
-	    	response.data.should.eql(newProduct);
+	    	response.data.should.eql({d: newProduct});
 	    	productList.length.should.equal(6);
 	    });
 
@@ -76,8 +76,8 @@
 
 	    	products.addProduct(request, response);
 
-	    	response.data.should.eql({description: "bar", 
-	    						errors: ["Sku is required"], isValid: false});
+	    	response.data.should.eql({d: {description: "bar",
+	    						errors: ["Sku is required"], isValid: false}});
 	    	productList.length.should.equal(5);
 	    });
 
@@ -88,8 +88,8 @@
 
 	    	products.addProduct(request, response);
 
-	    	response.data.should.eql({sku: "foo", 
-	    						errors: ["Description is required"], isValid: false});
+	    	response.data.should.eql({d:{sku: "foo",
+	    						errors: ["Description is required"], isValid: false}});
 	    	productList.length.should.equal(5);
 	    });
 
@@ -101,7 +101,7 @@
 
 	    	products.addProduct(request, response);
 
-	    	response.data.should.eql(newProduct);
+	    	response.data.should.eql({d: newProduct});
 	    	productList.length.should.equal(5);
 	    });
 
@@ -114,7 +114,7 @@
 	    	request.body = product;
 	    	products.updateProduct(request, response);
 
-	    	response.data.should.eql(product);
+	    	response.data.should.eql({d: product});
 	    	productList.length.should.equal(5);
 	    	productList[0].description.should.equal(product.description);
 	    });
@@ -128,12 +128,12 @@
 	    	request.body = product;
 	    	products.updateProduct(request, response);
 
-	    	response.data.should.eql({ 
+	    	response.data.should.eql({d:{
 		    	sku: product.sku,
 		    	description: productNotFound,
 		    	isValid: false,
 		    	errors: [productNotFound]
-		     });
+		     }});
 	    	productList.length.should.equal(5);
 	    	productList[0].description.should.equal("computer");
 	    });
@@ -147,8 +147,8 @@
 	    	request.body = product;
 	    	products.updateProduct(request, response);
 
-	    	response.data.should.eql({ sku: "12GBE445", errors: ["Description is required"], 
-	    		isValid: false });
+	    	response.data.should.eql({d:{ sku: "12GBE445", errors: ["Description is required"],
+	    		isValid: false }});
 	    	productList.length.should.equal(5);
 	    	productList[0].description.should.equal("computer");
 	    });
@@ -169,12 +169,12 @@
 	        request.params = { sku: sku };
 	    	products.deleteProduct(request, response);
 
-	    	response.data.should.eql({ 
+	    	response.data.should.eql({d: {
 		    	sku: sku,
 		    	description: productNotFound,
 		    	isValid: false,
 		    	errors: [productNotFound]
-		     });
+		     }});
 	    	productList.length.should.equal(5);
 	    	productList[0].sku.should.not.equal("computer");
 	    });

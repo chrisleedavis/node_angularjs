@@ -7,8 +7,8 @@
 		CPTS.http.getAll().then(function(products) { console.log(products); })
 		CPTS.http.get("12GBE445")
 		CPTS.http.delete("12GBE445")
-		CPTS.http.put({foo: bar})
-		CPTS.http.post({foo: bar}})
+		CPTS.http.put({sku: "bar", description: "foo"})
+		CPTS.http.post({sku: "bar", description: "foo"})
  */
 (function(){
 	"use strict";
