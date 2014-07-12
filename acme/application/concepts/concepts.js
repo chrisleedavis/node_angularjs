@@ -5,9 +5,6 @@
 (function() {
 	"use strict";
 
-	//dependency injection
-	//
-
 	if (!window.CPTS) {
 		window.CPTS = {};
 	}
