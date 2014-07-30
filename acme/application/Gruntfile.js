@@ -149,6 +149,18 @@
                 },
             },
 
+            cssmin: {
+                combine: {
+                    files: {
+                        "public/css/theme.min.css": [
+                            "content/css/bootstrap.css",
+                            "content/css/bootstrap-theme.css",
+                            "content/css/acme.css"
+                        ]
+                    }
+                }
+            },
+
             //to run, call `grunt karma:unit watch in console
             watch: {
                 options: {
@@ -171,6 +183,13 @@
                 js: {
                     files: jsHintFiles,
                     tasks: ["jshint", "uglify"],
+                    options: {
+                        spawn: false
+                    }
+                },
+                css: {
+                    files: ["content/css/**/*.css"],
+                    tasks: ["cssmin"],
                     options: {
                         spawn: false
                     }
