@@ -8,10 +8,52 @@
         <link href="css/theme.min.css" rel="stylesheet">
 	</head>
 	<body>
-		<div>
-			<h1>Coming Soon:</h1>
-			<h4>Acme Product CRUD Functionality (and more)</h4>
-		</div>
+		<header>
+            <div class="navbar navbar-inverse">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Acme Application</a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#products">Products</a></li>
+                            <!-- TODO: Make this come alive with bootstrap UI -->
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Concepts <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Array</a></li>
+                                    <li><a href="#">Constructor</a></li>
+                                    <li><a href="#">Curry</a></li>
+                                    <li><a href="#">Dependency Injection</a></li>
+                                    <li><a href="#">Global Error Handler</a></li>
+                                    <li><a href="#">Http</a></li>
+                                    <li><a href="#">Memoization</a></li>
+                                    <li><a href="#">Mixins</a></li>
+                                    <li><a href="#">Promise</a></li>
+                                    <li><a href="#">Raise Events</a></li>
+                                    <li><a href="#">Scope</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+		</header>
+        <div data-name="main">
+            <!-- TODO: Make dynamic with NG -->
+            <div class="jumbotron">
+                <h1>Acme Application</h1>
+                <p>Welcome to the <strong>Acme Application</strong>!</p>
+                <p>Click on the <a href="#products">Products</a> link to test CRUD with <a target="_blank" href="http://nodejs.org/">node.js</a> or click on the Concepts link to review basic concepts within JavaScript</p>
+            </div>
+        </div>
 	</body>
 	<script src="lib.min.js"></script>
 	<script src="concepts.min.js"></script>
