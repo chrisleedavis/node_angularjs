@@ -7,6 +7,7 @@
             "productController.js", 
             "productModel.js",
             "concepts/**/*.js",
+            "app/**/*.js",
             "test/**/*.js"
         ],
 
@@ -43,7 +44,7 @@
 
             concurrent: {
               start: {
-                tasks: ["nodemon", "uglify", "karma", "watch"],
+                tasks: ["nodemon", "uglify", "cssmin", "ngtemplates", "karma", "watch"],
                 options: {
                   logConcurrentOutput: true
                 }
@@ -114,6 +115,22 @@
                     }
                 },
 
+                app: {
+                    options: {
+                        sourceMap: "public/acme.min.map",
+                        //below controls what is seen within matching js file
+                        sourceMappingURL: function(path) { return path.replace("public/", "").replace(/.js/, ".map");  },
+                        sourceMapRoot: "../", //helps with relative path
+                        sourceMapPrefix: 1 //helps with relative path
+                    },
+                    files: {
+                        "public/acme.min.js": [
+                            "app/app.js",
+                            "public/acme.templates.js",
+                            "app/**/*.js"]
+                    }
+                },
+
                 concepts: {
                     options: {
                         sourceMap: "public/concepts.min.map",
@@ -161,6 +178,19 @@
                 }
             },
 
+            ngtemplates: {
+
+               all: {
+                    options:      {
+                        url:    function(url) { return url.replace("app/", "/templates/acme/"); },
+                        module:     "acmeTemplates",
+						standalone: true
+                    },
+                    src: "app/**/**.html",
+                    dest: "public/acme.templates.js"
+               }
+            },
+
             //to run, call `grunt karma:unit watch in console
             watch: {
                 options: {
@@ -181,8 +211,8 @@
                     }
                 },
                 js: {
-                    files: jsHintFiles,
-                    tasks: ["jshint", "uglify"],
+                    files: jsHintFiles.concat(["app/**/*.html"]),
+                    tasks: ["jshint", "uglify", "ngtemplates"],
                     options: {
                         spawn: false
                     }

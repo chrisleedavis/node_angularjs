@@ -16,6 +16,7 @@
 
 		//index.html, js, css
 		app.use(express.static("public"));
+		app.use(express.static("app")); //for source map help
 		app.use(express.static("concepts")); //for source map help
 		app.use(express.static("lib")); //for source map help
 
