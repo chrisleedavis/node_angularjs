@@ -213,3 +213,7 @@
 
 .vat {
     vertical-align: top !important; }
+
+.cursor-pointer {
+    cursor: pointer;
+}

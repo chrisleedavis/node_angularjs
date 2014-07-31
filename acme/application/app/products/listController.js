@@ -7,16 +7,30 @@
 
     angular.module("acmeApp").controller("listCtrl", ["$scope", "acmeProductModel", function($scope, productModel) {
 
-        var init = function() {
+            var loadProducts = function() {
 
-            //load up products for view
-            productModel.loadProducts().then(function(products) {
+                    //load up products for view
+                    productModel.loadProducts().then(function(products) {
 
-                $scope.products = products;
+                        $scope.products = products;
 
-            });
+                    });
+                },
 
-        };
+                init = function() {
+
+                    loadProducts();
+
+                    $scope.deleteProduct = function(sku) {
+
+                        productModel.deleteProduct(sku).then(function(data) {
+
+                             loadProducts();
+                        });
+
+                    };
+
+                };
 
         init();
 

@@ -4,22 +4,24 @@
             <h3 class="panel-title">Products</h3>
         </div>
         <div class="panel-body">
-            <div class="col-md-6">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Sku</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr data-ng-repeat="product in products">
-                            <td>{{product.sku}}</td>
-                            <td>{{product.description}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Sku</th>
+                    <th>Description</th>
+                    <th>Delete?</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr data-ng-repeat="product in products">
+                    <td>{{product.sku}}</td>
+                    <td>{{product.description}}</td>
+                    <td>
+                        <span class="glyphicon glyphicon-trash cursor-pointer" data-ng-click="deleteProduct(product.sku)"></span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

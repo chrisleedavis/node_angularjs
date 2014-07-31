@@ -7,9 +7,9 @@
     angular.module("acmeService").factory("acmeProductService", ["acmeResourceService",
         function(resourceService) {
 
-            var productResource =  resourceService("api/products/:id",
+            var productResource =  resourceService("api/products/:sku",
                 {
-                    id: "@id"
+                    sku: "@sku"
                 }, {});
 
             return productResource;

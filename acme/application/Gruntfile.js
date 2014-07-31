@@ -38,13 +38,14 @@
         grunt.loadNpmTasks("grunt-mocha-test");
         grunt.loadNpmTasks("grunt-concurrent");
         grunt.loadNpmTasks("grunt-nodemon");
+        grunt.loadNpmTasks("grunt-contrib-copy");
 
         grunt.initConfig({
             pkg: grunt.file.readJSON("package.json"),
 
             concurrent: {
               start: {
-                tasks: ["nodemon", "uglify", "cssmin", "ngtemplates", "karma", "watch"],
+                tasks: ["nodemon", "uglify", "cssmin", "ngtemplates", "karma", "copy", "watch"],
                 options: {
                   logConcurrentOutput: true
                 }
@@ -189,6 +190,17 @@
                     src: "app/**/**.html",
                     dest: "public/acme.templates.js"
                }
+            },
+
+            copy: {
+                main: {
+                    files: [{
+                        expand: true,
+                        cwd: "content/fonts",
+                        src: "*",
+                        dest: "public/fonts"
+                    }]
+                }
             },
 
             //to run, call `grunt karma:unit watch in console

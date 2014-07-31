@@ -35,6 +35,24 @@
                 return defer.promise;
             };
 
+            Model.prototype.deleteProduct = function(sku) {
+
+                var self = this,
+                    defer = $q.defer();
+
+                productService["delete"]({ sku: sku }, function(data) {
+
+                    defer.resolve(data);
+                },
+                function(errorResponse) {
+
+                    console.log(errorResponse); //todo: real error handling
+
+                });
+
+                return defer.promise;
+            };
+
             return new Model();
 
         }]);
