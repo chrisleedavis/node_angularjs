@@ -88,7 +88,7 @@
                             resolve: routeValidationResolver
 				        })
 				        .state("RouteKeyWithSubdirectory", {
-				            url: "/:subdirectory/:template",
+				            url: "/:subdirectory/:template?sku",
 				            views: {
 				                "defaultView": {
 				                    templateUrl: routeResolver

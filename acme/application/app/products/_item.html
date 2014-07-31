@@ -1,0 +1,28 @@
+<div data-ng-controller="itemCtrl">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">Product: {{product.sku}}</h3>
+        </div>
+        <div class="panel-body">
+            <form role="form">
+                <div class="mvl">
+                    <label>Sku</label>
+                    <input type="text" class="form-control" placeholder="Sku" data-ng-model="product.sku">
+                </div>
+                <div class="mvl">
+                    <label>Description</label>
+                    <input type="text" class="form-control" placeholder="Description" data-ng-model="product.description">
+                </div>
+                <div class="mvl">
+                    <label>Is Valid?</label>
+                    <input type="text" class="form-control" placeholder="Is Valid?" data-ng-model="product.isValid">
+                </div>
+                <div class="mvl">
+                    <button type="button" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-default">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
