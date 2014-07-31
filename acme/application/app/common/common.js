@@ -5,6 +5,6 @@
 (function(angular) {
     "use strict";
 
-    angular.module("acmeModule", ["acmeProvider", "acmeDirective"]);
+    angular.module("acmeModule", ["acmeProvider", "acmeDirective", "acmeService", "acmeModel"]);
 
 }(angular));

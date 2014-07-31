@@ -1,5 +1,5 @@
 /**
- * This will house all common providers for the OE application
+ * This will house all common providers for the Acme application
  *
  */
 (function(angular) {

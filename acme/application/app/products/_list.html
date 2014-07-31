@@ -1,3 +1,25 @@
-<div>
-    Future home of products list!
+<div data-ng-controller="listCtrl">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Products</h3>
+        </div>
+        <div class="panel-body">
+            <div class="col-md-6">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Sku</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-ng-repeat="product in products">
+                            <td>{{product.sku}}</td>
+                            <td>{{product.description}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
