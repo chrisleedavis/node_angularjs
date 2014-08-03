@@ -5,7 +5,8 @@
 (function(angular) {
     "use strict";
 
-    angular.module("acmeApp").controller("itemCtrl", ["$scope", "$stateParams", "acmeProductModel", function($scope, $stateParams, productModel) {
+    angular.module("acmeApp").controller("itemCtrl", ["$scope", "$stateParams", "$state", "acmeProductModel",
+        function($scope, $stateParams, $state, productModel) {
 
             var init = function() {
 
@@ -15,6 +16,17 @@
                         });
 
                     $scope.product = product;
+
+                    $scope.saveProduct = function() {
+
+                        //todo: real implementation
+                        console.log("saving Product real soon...");
+                    };
+
+                    $scope.cancelEdit = function() {
+
+                        $state.transitionTo("RouteKeyWithSubdirectory", {template: "list", subdirectory: "products"});
+                    };
                 };
 
         init();
