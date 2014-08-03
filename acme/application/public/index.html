@@ -21,12 +21,12 @@
                         </button>
                         <a class="navbar-brand" href="#home">Acme Application</a>
                     </div>
-                    <div class="navbar-collapse collapse">
+                    <div class="navbar-collapse collapse" data-ng-controller="navCtrl">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="#home">Home</a></li>
-                            <li><a href="#products/list">Products</a></li>
+                            <li data-ng-class="{ active: isActive(undefined) }"><a href="#home">Home</a></li>
+                            <li data-ng-class="{ active: isActive('products') }"><a href="#products/list">Products</a></li>
                             <!-- TODO: Make this come alive with bootstrap UI -->
-                            <li class="dropdown" on-toggle="toggled(open)">
+                            <li data-ng-class="{ active: isActive('concepts') }" class="dropdown" on-toggle="toggled(open)">
                                 <a href="" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Concepts <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="#concepts/array">Array</a></li>
