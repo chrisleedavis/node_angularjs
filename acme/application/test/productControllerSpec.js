@@ -22,11 +22,11 @@
 		    products.findAllProducts(request, response);
 
 		    response.data.should.eql({d: [
-				{ sku: "12GBE445", description: "computer", errors: [], isValid: true },
-				{ sku: "JHL34HHB", description: "monitor", errors: [], isValid: true },
-				{ sku: "IDSK2323", description: "keyboard", errors: [], isValid: true },
-				{ sku: "MML8989D", description: "phone", errors: [], isValid: true },
-				{ sku: "AAKKLD32", description: "chair", errors: [], isValid: true }
+				{ id: 1, sku: "12GBE445", description: "computer", errors: [], isValid: true },
+				{ id: 2, sku: "JHL34HHB", description: "monitor", errors: [], isValid: true },
+				{ id: 3, sku: "IDSK2323", description: "keyboard", errors: [], isValid: true },
+				{ id: 4, sku: "MML8989D", description: "phone", errors: [], isValid: true },
+				{ id: 5, sku: "AAKKLD32", description: "chair", errors: [], isValid: true }
 			]});
 	    });
 
@@ -38,7 +38,7 @@
 	    	request.params = { sku: sku };
 		    products.findProduct(request, response);
 
-		    response.data.should.eql({d: { sku: "IDSK2323", description: "keyboard",
+		    response.data.should.eql({d: { id: 3, sku: "IDSK2323", description: "keyboard",
 		    	errors: [], isValid: true }});
 	    });
 
@@ -60,7 +60,7 @@
 
 	    it("should add a product successfully", function() {
 
-	    	var newProduct = { sku: "foo", description: "bar", errors: [], isValid: true };
+	    	var newProduct = { id: 6, sku: "foo", description: "bar", errors: [], isValid: true };
 	    	request.body = newProduct;
 
 	    	products.addProduct(request, response);

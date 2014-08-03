@@ -11,7 +11,10 @@
             var init = function() {
 
                     var sku = $stateParams.sku,
-                        product;
+                        product,
+                        redirectToList = function() {
+                            $state.transitionTo("RouteKeyWithSubdirectory", {template: "list", subdirectory: "products"});
+                        };
 
                     productModel.loadProduct(sku).then(function(product) {
 
@@ -20,13 +23,16 @@
 
                     $scope.saveProduct = function() {
 
-                        //todo: real implementation
-                        console.log("saving Product real soon...");
+                        productModel.saveProduct().then(function(product) {
+
+                            $scope.product = product;
+                            redirectToList();
+                        });
                     };
 
                     $scope.cancelEdit = function() {
 
-                        $state.transitionTo("RouteKeyWithSubdirectory", {template: "list", subdirectory: "products"});
+                         redirectToList();
                     };
                 };
 

@@ -9,12 +9,12 @@
 
             var Model = function() {
 
-                if (this instanceof Model === false) {
-                    return new Model();
-                }
+                    if (this instanceof Model === false) {
+                        return new Model();
+                    }
 
-                return this;
-            };
+                    return this;
+                };
 
             /*
              * This will attempt to use cache (from existing products list).  If there is
@@ -59,6 +59,26 @@
 
                     self.products = products.d;
                     defer.resolve(self.products);
+                },
+                function(errorResponse) {
+
+                    console.log(errorResponse); //todo: real error handling
+
+                });
+
+                return defer.promise;
+            };
+
+            Model.prototype.saveProduct = function() {
+
+                var self = this,
+                    defer = $q.defer(),
+                    saveOperation = self.product.id && self.product.id > 0 ? "update" : "save";
+
+                productService[saveOperation](self.product, function(data) {
+
+                    self.product = data.d;
+                    defer.resolve(self.product);
                 },
                 function(errorResponse) {
 

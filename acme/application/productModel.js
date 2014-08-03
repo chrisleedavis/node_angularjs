@@ -14,6 +14,10 @@
 	        return new Product(options);
 	    }
 
+	    if (options && options.id) {
+	        this.id = options.id;
+	    }
+
 	    if (options && options.sku) {
 	    	this.sku = options.sku;
 	    }

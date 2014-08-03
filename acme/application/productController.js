@@ -13,11 +13,11 @@
 		initProducts = function() {
 
 			products = [];
-			products.push(new Product({ sku: "12GBE445", description: "computer"}));
-			products.push(new Product({ sku: "JHL34HHB", description: "monitor"}));
-			products.push(new Product({ sku: "IDSK2323", description: "keyboard"}));
-			products.push(new Product({ sku: "MML8989D", description: "phone"}));
-			products.push(new Product({ sku: "AAKKLD32", description: "chair"}));
+			products.push(new Product({ id: 1, sku: "12GBE445", description: "computer"}));
+			products.push(new Product({ id: 2, sku: "JHL34HHB", description: "monitor"}));
+			products.push(new Product({ id: 3, sku: "IDSK2323", description: "keyboard"}));
+			products.push(new Product({ id: 4, sku: "MML8989D", description: "phone"}));
+			products.push(new Product({ id: 5, sku: "AAKKLD32", description: "chair"}));
 
 			return products;
 		},
@@ -75,6 +75,7 @@
 			product.isValid = false;
 			product.errors.push("Sku not unique");
 		} else if (product.isValid) {
+		    product.id = products.length + 1;
 			products.push(product);			
 		}
 
