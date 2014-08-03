@@ -11,15 +11,21 @@
             var init = function() {
 
                     var sku = $stateParams.sku,
+                        isNew = _.isNull(sku),
                         product,
                         redirectToList = function() {
                             $state.transitionTo("RouteKeyWithSubdirectory", {template: "list", subdirectory: "products"});
                         };
 
-                    productModel.loadProduct(sku).then(function(product) {
+                    //is form for updating or creating new product?
+                    if (!isNew) {
+                        productModel.loadProduct(sku).then(function(product) {
 
-                       $scope.product = product;
-                    });
+                           $scope.product = product;
+                        });
+                    } else {
+                        $scope.product = productModel.product; //should be new from listController
+                    }
 
                     $scope.saveProduct = function() {
 

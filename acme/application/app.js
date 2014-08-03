@@ -29,9 +29,19 @@
 		//web api routing
 		app.get(API_ROOT, products.findAllProducts);
 		app.get(API_ROOT_SKU, products.findProduct);
-		app.post(API_ROOT, products.addProduct);
 		app.put(API_ROOT_SKU, products.updateProduct);
 		app["delete"](API_ROOT_SKU, products.deleteProduct);
+
+		/*
+		 * a bit non-standard here by not using API_ROOT with post...then why do it?
+		 *  - normal posts generally should not have a anything but a payload but because 'sku' is used
+		 *      within the angular service for updates/PUT, NG automatically adds it to the url
+		 *
+		 *      there were 2 options (1. create special NG service for this, 2. OR just add sku to post)
+		 *      - option #2 was chosen for simplicity
+		 */
+		app.post(API_ROOT_SKU, products.addProduct);
+
 
 		console.log("Acme server has started...");
 

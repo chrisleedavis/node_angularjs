@@ -5,7 +5,8 @@
 (function(angular) {
     "use strict";
 
-    angular.module("acmeApp").controller("listCtrl", ["$scope", "acmeProductModel", function($scope, productModel) {
+    angular.module("acmeApp").controller("listCtrl", ["$scope", "$state", "acmeProductModel",
+        function($scope, $state, productModel) {
 
             var loadProducts = function() {
 
@@ -20,6 +21,14 @@
                 init = function() {
 
                     loadProducts();
+
+                    $scope.createProduct = function() {
+
+                        productModel.product = { id: -1, sku: null, description: null, isValid: true, errors: [] };
+                        $state.transitionTo("RouteKeyWithSubdirectory",
+                            { template: "item", subdirectory: "products" }); //sku will be null for new product
+
+                    };
 
                     $scope.deleteProduct = function(sku) {
 
