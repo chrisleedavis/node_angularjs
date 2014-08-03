@@ -225,7 +225,7 @@
                 },
                 js: {
                     files: jsHintFiles.concat(["app/**/*.html"]),
-                    tasks: ["jshint", "uglify", "ngtemplates"],
+                    tasks: ["jshint", "ngtemplates", "uglify"],
                     options: {
                         spawn: false
                     }
