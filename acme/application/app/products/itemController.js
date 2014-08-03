@@ -11,11 +11,12 @@
             var init = function() {
 
                     var sku = $stateParams.sku,
-                        product = _.find(productModel.products, function(p) {
-                            return p.sku === sku;
-                        });
+                        product;
 
-                    $scope.product = product;
+                    productModel.loadProduct(sku).then(function(product) {
+
+                       $scope.product = product;
+                    });
 
                     $scope.saveProduct = function() {
 

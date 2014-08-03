@@ -16,6 +16,40 @@
                 return this;
             };
 
+            /*
+             * This will attempt to use cache (from existing products list).  If there is
+             *  no product list to work from, then it will go back to the server to load
+             *  the product
+             */
+            Model.prototype.loadProduct = function(sku) {
+
+                var self = this,
+                    defer = $q.defer();
+
+                //get from cache
+                if (self.products && self.products.length > 0) {
+
+                    self.product = _.find(self.products, function(p) {
+                                       return p.sku === sku;
+                                   });
+                    defer.resolve(self.product);
+
+                } else { //pull from server if cache not available
+                    productService.get({ sku: sku }, function(data) {
+
+                        self.product = data.d;
+                        defer.resolve(self.product);
+                    },
+                    function(errorResponse) {
+
+                        console.log(errorResponse); //todo: real error handling
+
+                    });
+                }
+
+                return defer.promise;
+            };
+
             Model.prototype.loadProducts = function() {
 
                 var self = this,
